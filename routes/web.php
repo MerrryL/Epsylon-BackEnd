@@ -22,6 +22,24 @@ Route::get('/products/{product}', 'ProductController@show');
 Route::patch('/products/{product}', 'ProductController@update');
 Route::delete('/products/{product}', 'ProductController@destroy');
 
+Route::get('/availables', 'AvailabilitiesController@index');
+Route::post('/availables', 'AvailabilitiesController@store');
+Route::get('/availables/{Availabilities}', 'AvailabilitiesController@show');
+Route::patch('/availables/{Availabilities}', 'AvailabilitiesController@update');
+Route::delete('/availables/{Availabilities}', 'AvailabilitiesController@destroy');
+
+Route::get('/procurables', 'ProcurableController@index');
+Route::post('/procurables', 'ProcurableController@store');
+Route::get('/procurables/{procurabilities}', 'ProcurableController@show');
+Route::patch('/procurables/{procurabilities}', 'ProcurableController@update');
+Route::delete('/procurables/{procurabilities}', 'ProcurableController@destroy');
+
+Route::get('/procurabletypes', 'ProcurableTypeController@index');
+Route::post('/procurabletypes', 'ProcurableTypeController@store');
+Route::get('/procurabletypes/{procurabletypes}', 'ProcurableTypeController@show');
+Route::patch('/procurabletypes/{procurabletypes}', 'ProcurableTypeController@update');
+Route::delete('/procurabletypes/{procurabletypes}', 'ProcurableTypeController@destroy');
+
 //TODO:work on that
 //Route::get('products.images','ProductImageController');
 

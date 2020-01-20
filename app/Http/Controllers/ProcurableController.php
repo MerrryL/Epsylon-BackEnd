@@ -14,7 +14,11 @@ class ProcurableController extends Controller
      */
     public function index()
     {
-        //
+        $procurables=Procurable::All();
+        foreach($procurables as $procurable){
+            $procurable->type;
+        }
+        return json_encode($procurables);
     }
 
     /**

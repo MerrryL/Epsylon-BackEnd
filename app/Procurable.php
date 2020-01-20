@@ -8,7 +8,7 @@ class Procurable extends Model
 {
     protected $guarded = [];
     
-    public function procurabletype(){
+    public function type(){
         return $this->belongsTo(ProcurableType::class);
     }
     public function availabilities(){

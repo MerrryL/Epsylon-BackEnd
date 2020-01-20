@@ -14,7 +14,21 @@ class AvailabilitiesController extends Controller
      */
     public function index()
     {
-        //
+        $availables=Availabilities::All();
+        
+        foreach($availables as $available){
+            $procurables = $available->procurable;
+
+            
+            foreach($procurables as $procurable){
+                $procurable->type;
+            }
+            
+
+        }
+
+
+        return json_encode($availables);
     }
 
     /**

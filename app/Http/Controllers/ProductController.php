@@ -17,7 +17,15 @@ class ProductController extends Controller
         $products=Product::All();
         foreach($products as $product){
             $product->images;
-            $product->availabilities;
+            $availables=$product->availables;
+
+            /*foreach($availables as $available){
+                $procurables=$available->procurable();
+                foreach($procurables as $procurable){
+                    $procurable->type;
+                    
+                }
+            }*/
         }
         //TODO:availabilitystatus and hidden
         
@@ -62,7 +70,8 @@ class ProductController extends Controller
     {
         //TODO:availabilitystatus and hidden, procurables
         $product->images;
-        $product->availables;
+        $availables=$product->availables;
+        //$procurables=$availables->type;
 
 
         return json_encode($product);
