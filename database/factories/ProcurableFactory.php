@@ -7,8 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Procurable::class, function (Faker $faker) {
     return [
-        'type' => $faker->word,
+        'type_id' => function () {
+            return App\ProcurableType::inRandomOrder()->first()->id;
+        }, 
         'procurable' => $faker->word,
-        'quantity' => $faker->randomDigit,
     ];
 });

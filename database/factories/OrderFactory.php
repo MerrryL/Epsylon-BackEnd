@@ -9,13 +9,13 @@ $factory->define(Order::class, function (Faker $faker) {
     return [
         'dateshipped'=> now(),
         
-        'fk_user_id' => function () {
-            return App\User::inRandomOrder()->first()->user_id;
+        'user_id' => function () {
+            return App\User::inRandomOrder()->first()->id;
         },
         'customername' => $faker->userName,
 
-        'fk_shipping_id' => function () {
-            return App\ShippingInfo::inRandomOrder()->first()->shipping_id;
+        'shipping_id' => function () {
+            return App\ShippingInfo::inRandomOrder()->first()->id;
         },
 
         'status'=> 'delivering',

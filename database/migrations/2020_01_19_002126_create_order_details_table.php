@@ -14,8 +14,10 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->BigInteger('fk_order_id')->unsigned();
-            $table->BigInteger('fk_product_id')->unsigned();
+            $table->BigInteger('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->BigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('productname');
             $table->integer('quantity');
             $table->float('unitcost');

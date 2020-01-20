@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Availabilities extends Model
 {
-    protected $guarded = [];
-
     public function product(){
         return $this->belongsTo(Product::class);
+    }
+    public function procurable(){
+        return $this->belongsTo(Procurable::class);
     }
 }

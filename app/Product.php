@@ -9,9 +9,9 @@ class Product extends Model
     protected $guarded = [];
 
     public function images(){
-        return $this->morphOneOrMany(Image::class, 'imageable');
+        return $this->hasMany(Image::class);
     }
-    public function procurables(){
-        return $this->morphOneOrMany(Procurable::class, 'available');
+    public function availables(){
+        return $this->hasMany(Availabilities::class);
     }
 }

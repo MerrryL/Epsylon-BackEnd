@@ -14,7 +14,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=\App\Product::All();
+        $products=Product::All();
+        foreach($products as $product){
+            $product->images;
+            $product->availabilities;
+        }
+        //TODO:availabilitystatus and hidden
+        
 
         return json_encode($products);
     }
@@ -37,7 +43,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validatedData()->{'availabilitystatus'}=TRUE;
+        $this->validatedData()->{'availabilitystatus'}=FALSE;
+
+        $product = Product::create($this->validatedData());
+
+        return redirect('products/'.$product->id);
     }
 
     /**
@@ -48,7 +60,12 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        //TODO:availabilitystatus and hidden, procurables
+        $product->images;
+        $product->availables;
+
+
+        return json_encode($product);
     }
 
     /**
@@ -59,7 +76,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        
     }
 
     /**
@@ -71,7 +88,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //TODO: Patch isn't possible in "forms", needa change the forms
+        $product->update($this->validatedData());
+
+        return redirect('/products');
     }
 
     /**
@@ -82,6 +102,20 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect('/products');
     }
+
+    protected function validatedData(){
+        return request()->validate([
+            'productname' => 'required|max:255',
+            'description' => 'required',
+            'productprice' => 'required',
+            'availabilitystatus' => 'optionnal',
+            'availabilitystatus' => 'optionnal',
+        ]);
+    }
+
+    
 }

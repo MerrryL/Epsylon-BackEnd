@@ -14,10 +14,12 @@ class CreateProcurablesTable extends Migration
     public function up()
     {
         Schema::create('procurables', function (Blueprint $table) {
-            $table->bigIncrements('procurable_id');
-            $table->string('type');
+            $table->bigIncrements('id');
+
+            $table->BigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('procurable_types')->onDelete('cascade');
+            
             $table->string('procurable');
-            $table->integer('quantity');
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
 

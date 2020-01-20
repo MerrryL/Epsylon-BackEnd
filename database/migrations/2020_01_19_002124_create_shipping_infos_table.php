@@ -14,7 +14,7 @@ class CreateShippingInfosTable extends Migration
     public function up()
     {
         Schema::create('shipping_infos', function (Blueprint $table) {
-            $table->bigIncrements('shipping_id');
+            $table->bigIncrements('id');
             $table->string('shippingtype');
             $table->float('shippingcost');
             $table->timestamp('updated_at')->nullable();

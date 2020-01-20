@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Image::class, function (Faker $faker) {
     return [
-        'fk_product_id' => function () {
-            return App\Product::inRandomOrder()->first()->product_id;
+        'product_id' => function () {
+            return App\Product::inRandomOrder()->first()->id;
         },            
         'path' => 'storage/app/public',
         'name' => '01',

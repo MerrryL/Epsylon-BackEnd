@@ -7,11 +7,11 @@ use Faker\Generator as Faker;
 
 $factory->define(OrderDetails::class, function (Faker $faker) {
     return [
-        'fk_order_id' => function () {
-            return App\Order::inRandomOrder()->first()->order_id;
+        'order_id' => function () {
+            return App\Order::inRandomOrder()->first()->id;
         },     
-        'fk_product_id' => function () {
-            return App\Product::inRandomOrder()->first()->product_id;
+        'product_id' => function () {
+            return App\Product::inRandomOrder()->first()->id;
         },     
         'productname' => $faker->numberBetween($min=1, $max=20),
         'quantity' => $faker->numberBetween($min=1, $max=3),

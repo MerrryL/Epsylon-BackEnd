@@ -14,19 +14,19 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('order_id');
+            $table->bigIncrements('id');
             $table->timestamp('dateshipped')->nullable();
             
 
-            $table->BigInteger('fk_user_id')->unsigned();
-            $table->foreign('fk_user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->BigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('customername');
 
-            $table->BigInteger('fk_shipping_id')->unsigned();
-            $table->foreign('fk_shipping_id')->references('shipping_id')->on('shipping_infos')->onDelete('cascade');
+            $table->BigInteger('shipping_id')->unsigned();
+            $table->foreign('shipping_id')->references('id')->on('shipping_infos')->onDelete('cascade');
 
 
-            $table->string('status');
+            $table->string('status')->default('Reserved');
 
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
