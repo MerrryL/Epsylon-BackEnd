@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(ShoppingCart::class, function (Faker $faker) {
     return [
-        //
+        'quantity'=> $faker->randomDigit,
+        'dateAdded'=> now(),
     ];
 });

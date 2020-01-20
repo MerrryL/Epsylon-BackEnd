@@ -14,7 +14,9 @@ class ShippingInfoController extends Controller
      */
     public function index()
     {
-        //
+        $shippingInfos=\App\ShippingInfo::All();
+
+        return json_encode($shippingInfos);
     }
 
     /**

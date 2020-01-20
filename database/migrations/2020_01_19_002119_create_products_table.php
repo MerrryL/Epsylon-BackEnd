@@ -14,15 +14,16 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('productid');
+            $table->bigIncrements('product_id');
             $table->string('productname');
             $table->string('description');
-            $table->string('imagepathasjson');
-            $table->integer('productprice');
-            $table->string('availablesasjson');
-            $table->string('availabilitystatus');
-            $table->string('hidden');
-            $table->timestamps();
+            $table->string('imagepathasjson')->nullable();
+            $table->float('productprice');
+            $table->string('availablesasjson')->nullable();
+            $table->boolean('availabilitystatus');
+            $table->boolean('hidden');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

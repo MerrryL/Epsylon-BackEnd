@@ -15,12 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('order_id');
-            $table->timestamp('datecreated');
-            $table->timestamp('dateshipped');
+            $table->timestamp('dateshipped')->nullable();
+            
+
+            $table->BigInteger('fk_user_id')->unsigned();
+            $table->foreign('fk_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->string('customername');
-            $table->unsignedBigInteger('fk_customer_id');
+
+            $table->BigInteger('fk_shipping_id')->unsigned();
+            $table->foreign('fk_shipping_id')->references('shipping_id')->on('shipping_infos')->onDelete('cascade');
+
+
             $table->string('status');
-            $table->unsignedBigInteger('fk_shipping_id');
+
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

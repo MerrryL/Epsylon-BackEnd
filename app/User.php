@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function orders(){
+        return $this->morphOneOrMany(Order::class, 'orderable');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

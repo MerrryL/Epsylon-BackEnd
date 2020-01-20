@@ -15,9 +15,11 @@ class CreateShoppingCartsTable extends Migration
     {
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->bigIncrements('shoppingcart_id');
-            $table->unsignedBigInteger('fk_product_id');
+            //$table->unsignedBigInteger('fk_product_id');
             $table->integer('quantity');
-            $table->timestamps('dateAdded');
+            $table->timestamp('dateAdded')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

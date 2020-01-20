@@ -14,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products=\App\Product::All();
+
+        return json_encode($products);
     }
 
     /**

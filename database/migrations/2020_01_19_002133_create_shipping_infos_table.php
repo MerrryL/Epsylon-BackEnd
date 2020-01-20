@@ -17,6 +17,8 @@ class CreateShippingInfosTable extends Migration
             $table->bigIncrements('shipping_id');
             $table->string('shippingtype');
             $table->float('shippingcost');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

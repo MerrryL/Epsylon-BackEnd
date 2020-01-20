@@ -7,4 +7,3 @@ php artisan make:model Order -a ;
 php artisan make:model ShippingInfo -a ;
 php artisan make:model Procurable -a ;
 php artisan make:model TypeOfProcurable -a ;
-php artisan make:model Admin -a;

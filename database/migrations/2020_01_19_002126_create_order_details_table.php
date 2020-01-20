@@ -14,12 +14,14 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->unsignedBigInteger('fk_order_id');
-            $table->integer('productid');
+            $table->BigInteger('fk_order_id')->unsigned();
+            $table->BigInteger('fk_product_id')->unsigned();
             $table->string('productname');
             $table->integer('quantity');
             $table->float('unitcost');
             $table->float('subtotal');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
