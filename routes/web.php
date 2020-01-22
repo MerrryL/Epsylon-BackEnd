@@ -43,10 +43,15 @@ Route::delete('/procurabletypes/{procurabletypes}', 'ProcurableTypeController@de
 //TODO:work on that
 //Route::get('products.images','ProductImageController');
 
+Route::get('/users', 'UserController@index');
+Route::post('/users', 'UserController@store');
+Route::get('/users/{user}', 'UserController@show');
+Route::patch('/users/{user}', 'UserController@update');
+Route::delete('/users/{user}', 'UserController@destroy');
+
 
 //placeholders remaining
 Route::resource('cartitem', 'CartItemController');
-Route::resource('customer', 'CustomerController');
 Route::resource('order', 'OrderController');
 Route::resource('orderdetails', 'OrderDetailsController');
 Route::resource('procurable', 'ProcurableController');

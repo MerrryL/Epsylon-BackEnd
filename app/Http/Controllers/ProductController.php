@@ -53,7 +53,7 @@ class ProductController extends Controller
     {
         
         $this->validatedData()->{'availabilitystatus'}=TRUE;
-        $this->validatedData()->{'availabilitystatus'}=FALSE;
+        $this->validatedData()->{'hidden'}=FALSE;
 
         $product = Product::create($this->validatedData());
 

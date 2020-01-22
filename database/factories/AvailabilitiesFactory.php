@@ -14,6 +14,8 @@ $factory->define(Availabilities::class, function (Faker $faker) {
             return App\Product::inRandomOrder()->first()->id;
         }, 
 
+        'dispo' => $faker->word(),
+
         'quantity' => $faker->randomDigit,
     ];
 });

@@ -16,11 +16,15 @@ class CreateAvailabilitiesTable extends Migration
         Schema::create('availabilities', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->BigInteger('product_id')->unsigned();
+            //TODO : temporary : can't make it work yet
+            /*$table->BigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             
             $table->BigInteger('procurable_id')->unsigned();
-            $table->foreign('procurable_id')->references('id')->on('procurables')->onDelete('cascade');
+            $table->foreign('procurable_id')->references('id')->on('procurables')->onDelete('cascade');*/
+
+            
+            $table->string('dispo');
 
             $table->integer('quantity');
             $table->timestamps();
