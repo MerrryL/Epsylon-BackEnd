@@ -10,9 +10,9 @@ $factory->define(Availabilities::class, function (Faker $faker) {
         'product_id' => function () {
             return App\Product::inRandomOrder()->first()->id;
         },
-        'procurable_id' => function () {
+        /*'procurable_id' => function () {
             return App\Product::inRandomOrder()->first()->id;
-        }, 
+        }, */
 
         'dispo' => $faker->word(),
 

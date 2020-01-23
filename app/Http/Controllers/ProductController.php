@@ -32,6 +32,28 @@ class ProductController extends Controller
 
         return json_encode($products);
     }
+    public function news()
+    {
+        $products=Product::where('new', 1)
+                        ->take(10)
+                        ->get();
+        foreach($products as $product){
+            $product->images;
+            $availables=$product->availables;
+
+            /*foreach($availables as $available){
+                $procurables=$available->procurable();
+                foreach($procurables as $procurable){
+                    $procurable->type;
+                    
+                }
+            }*/
+        }
+        //TODO:availabilitystatus and hidden
+        
+
+        return json_encode($products);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -51,9 +73,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validatedData()->{'availabilitystatus'}=TRUE;
-        $this->validatedData()->{'hidden'}=FALSE;
 
         $product = Product::create($this->validatedData());
 
@@ -118,11 +137,11 @@ class ProductController extends Controller
 
     protected function validatedData(){
         return request()->validate([
-            'productname' => 'required|max:255',
+            'name' => 'required|max:255',
             'description' => 'required',
-            'productprice' => 'required',
-            'availabilitystatus' => 'optionnal',
-            'availabilitystatus' => 'optionnal',
+            'price' => 'required',
+            'availabilitystatus' => 'optional',
+            'availabilitystatus' => 'optional',
         ]);
     }
 

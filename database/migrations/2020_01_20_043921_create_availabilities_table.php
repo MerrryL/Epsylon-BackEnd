@@ -17,10 +17,10 @@ class CreateAvailabilitiesTable extends Migration
             $table->bigIncrements('id');
 
             //TODO : temporary : can't make it work yet
-            /*$table->BigInteger('product_id')->unsigned();
+            $table->BigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             
-            $table->BigInteger('procurable_id')->unsigned();
+            /*$table->BigInteger('procurable_id')->unsigned();
             $table->foreign('procurable_id')->references('id')->on('procurables')->onDelete('cascade');*/
 
             
